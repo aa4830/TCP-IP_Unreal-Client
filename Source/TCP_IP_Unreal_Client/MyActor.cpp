@@ -90,10 +90,33 @@ bool AMyActor::ReceiveData(FString& OutData)
 
 void AMyActor::HandleServerCommand(const FString& Command)
 {
-    if (Command == "Rotate")
+    if (Command == "aaaaaa")
     {
-        FRotator NewRotation = GetActorRotation();
-        NewRotation.Yaw += 10.0f;
-        SetActorRotation(NewRotation);
+        UE_LOG(LogTemp, Warning, TEXT("Command received: %s"), *Command);
+        FVector NewLocation = GetActorLocation();
+        NewLocation += FVector(0.0f, 0.0f, 100.0f);
+        SetActorLocation(NewLocation);
     }
+    else if (Command == "dddddd")
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Command received: %s"), *Command);
+        FVector NewLocation = GetActorLocation();
+        NewLocation += FVector(0.0f, 0.0f, -100.0f);
+        SetActorLocation(NewLocation);
+    }
+    else if (Command == "wwwwww")
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Command received: %s"), *Command);
+        FVector NewLocation = GetActorLocation();
+        NewLocation += FVector(100.0f, 0.0f, 0.0f);
+        SetActorLocation(NewLocation);
+    }
+    else if (Command == "ssssss")
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Command received: %s"), *Command);
+        FVector NewLocation = GetActorLocation();
+        NewLocation += FVector(-100.0f, 0.0f, 10.0f);
+        SetActorLocation(NewLocation);
+    }
+
 }
